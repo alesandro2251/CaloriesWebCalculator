@@ -1,0 +1,83 @@
+.list-of-foods-container {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin-top: 10px;
+    margin-right: 30px;
+  }
+  .foods-container{
+    max-height: 200px;
+    overflow: auto;
+  }
+  
+  .search {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .food-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .food-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .food-nutrients {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .food-nutrients span {
+    margin-right: 5px;
+    font-weight: bold;
+  }
+  
+  /* Define styles for the container */
+  .daily-calories-container {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+  }
+  
+  /* Define styles for the list group items */
+  .list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border: none;
+  }
+  
+  .list-group-item:last-of-type {
+    border-bottom: none;
+  }
+  
+  /* Define styles for the input field */
+  .list-group-item input[type="number"] {
+    margin-left: auto;
+    width: 6rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    text-align: right;
+  }
+  
+  /* Define styles for the calorie count */
+  .list-group-item p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }

@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Col, Row } from "react-bootstrap";
+import FoodInsert from "./components/food-insert/food-insert";
+import ListOfFoods from "./components/list-of-foods/list-of-foods";
+import CalsCalculator from "./components/calscalculator/calculator.jsx";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Row className="g-0">
+        <Col md={4}>
+          <Row>
+            <Col md={12}>
+              <FoodInsert />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12}>
+              <CalsCalculator />
+            </Col>
+          </Row>
+        </Col>
+        <Col md={8}>
+          <ListOfFoods />
+        </Col>
+      </Row>
     </div>
   );
 }
