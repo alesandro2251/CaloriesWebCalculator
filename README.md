@@ -10,7 +10,7 @@
   <p>React.js</p>
   <p>React-Bootstrap</p>
   <p>Axios (for reading data from the backend)</p>
-  <h4 style='color: lightgreen;>For Backend :</h4>
+  <h4 style='color: rgb(173, 216, 230);>For Backend :</h4>
   <p>Django</p>
   <p>Django-REST</p>
  
