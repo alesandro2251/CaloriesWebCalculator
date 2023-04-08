@@ -6,11 +6,13 @@
   <p> 3) If the food isn't in the list to add it and check the calories </p>
   
   <h2>Technologies used :</h2>
-  <h4 style='color: lightblue;'>For Frontend :</h4>
+  
+  <h4>For Frontend :</h4>
   <p>React.js</p>
   <p>React-Bootstrap</p>
   <p>Axios (for reading data from the backend)</p>
-  <h4 style='color: rgb(173, 216, 230);>For Backend :</h4>
+  
+  <h4 >For Backend :</h4>
   <p>Django</p>
   <p>Django-REST</p>
  
@@ -18,6 +20,7 @@
 <p>  1) enter the terminal</p>
 <p>  2) to accses the frontend type :</p>
 <p>  cd ./frontend/ -----> npm start</p>
+
 <p>  3) to accses the backend type :</p>
 <p>  cd ./backend/ -----> python ./manage.py runserver </p>
 
