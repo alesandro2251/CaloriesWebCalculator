@@ -6,11 +6,11 @@
   <p> 3) If the food isn't in the list to add it and check the calories </p>
   
   <h2>Technologies used :</h2>
-  <h4>For Frontend :</h4>
+  <h4 style='color: lightblue;'>For Frontend :</h4>
   <p>React.js</p>
   <p>React-Bootstrap</p>
   <p>Axios (for reading data from the backend)</p>
-  <h4>For Backend :</h4>
+  <h4 style='color: lightgreen;>For Backend :</h4>
   <p>Django</p>
   <p>Django-REST</p>
  
