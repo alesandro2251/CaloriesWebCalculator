@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, ListGroup, Button } from "react-bootstrap";
+import { Container, ListGroup, Button, Row, Col } from "react-bootstrap";
 import "./list-of-foods.css";
 
 function ListOfFoods() {
@@ -44,7 +44,7 @@ function ListOfFoods() {
           fats: data[i]["fats"],
           quantity: 1,
         });
-        alert("food added");
+        alert("Item added !");
         console.log(dataToSend);
       }
     }
@@ -63,6 +63,10 @@ function ListOfFoods() {
       return { ...prev };
     });
   }
+
+  const removeFromList = (x) => {
+    delete dataToSend[x];
+  };
 
   return (
     <Container className="list-of-foods-container g-0" fluid="md">
@@ -98,26 +102,51 @@ function ListOfFoods() {
       <Container className="daily-calories-container g-0" fluid="md">
         {dataToSend.map((index, i) => {
           return (
-            <ListGroup.Item key={index.id}>
-              <h5>{index.name}</h5>
-              <input
-                type="number"
-                value={index.quantity}
-                onChange={(event) => onChangeQuantity(event, i)}
-              />
-              <p>
-                Calories{" "}
-                {(
-                  (index.protein * 4 + index.carbs * 4 + index.fats * 8) *
-                  index.quantity
-                ).toFixed(1)}
-              </p>
+            <ListGroup.Item key={index.id} className="item">
+              <Row>
+                <Col sm={8}>
+                  {" "}
+                  <h5>{index.name}</h5>
+                </Col>
+                <Col sm={4} >
+                  <div className="d-flex justify-content-end g-0">
+                    <div className="input-number">
+                      <input
+                        type="number"
+                        value={index.quantity}
+                        onChange={(event) => onChangeQuantity(event, i)}
+                      />
+                    </div>
+                    <div className="text">
+                      <p>
+                        Calories{" "}
+                        {(
+                          (index.protein * 4 +
+                            index.carbs * 4 +
+                            index.fats * 8) *
+                          index.quantity
+                        ).toFixed(1)}{" "}
+                      </p>
+                    </div>
+                    <div>
+                      <Button className="item-button"
+                        value={i}
+                        onClick={(event) => removeFromList(event.target.value)}
+                      >
+                        <i>x</i>
+                      </Button>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
             </ListGroup.Item>
           );
         })}
       </Container>
       <div className="d-grid">
-        <Button onClick={forceUpdate}>Update</Button>
+        <Button size="sm" onClick={forceUpdate}>
+          Update
+        </Button>
       </div>
     </Container>
   );
