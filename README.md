@@ -9,7 +9,7 @@
   
   <h4>For Frontend :</h4>
   <p>React.js</p>
-  <p>React-Bootstrap</p>
+  <p>React-Bootstrap (UI library)</p>
   <p>Axios (for reading data from the backend)</p>
   
   <h4 >For Backend :</h4>
