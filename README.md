@@ -28,4 +28,7 @@
 <p> If the backend doesn't work: </p>
 <p> cd ./backend --> pip install django --> pip install djangorestframework --> pip install django-cors-headers </p>
 <p> if again doesn't work :</p>
-<p> check  ./backend/settings.py</p>
+<p> check  ./backend/backend/settings.py </p>
+
+Here is how it is looks like :
+![Untitled](https://user-images.githubusercontent.com/92319051/230726986-0a47be4f-9346-490b-9225-7308e752d972.png)
