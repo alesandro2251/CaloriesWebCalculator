@@ -31,4 +31,5 @@
 <p> check  ./backend/backend/settings.py </p>
 
 Here is how it is looks like :
-![Untitled](https://user-images.githubusercontent.com/92319051/230726986-0a47be4f-9346-490b-9225-7308e752d972.png)
+
+![Untitled](https://user-images.githubusercontent.com/92319051/230727069-343d2ffd-e75f-4692-93a3-7def83a25e40.png)
