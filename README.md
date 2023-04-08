@@ -14,3 +14,18 @@
   <p>Django</p>
   <p>Django-REST</p>
  
+<h2>How to launch the project :</h2>
+<p>  1) enter the terminal</p>
+<p>  2) to accses the frontend type :</p>
+<p>  cd ./frontend/ -----> npm start</p>
+<p>  3) to accses the backend type :</p>
+<p>  cd ./backend/ -----> python ./manage.py runserver </p>
+
+<h5>If something doesn't work try this :</h5>
+<p> If the frontend doesn't work: </p>
+<p> cd ./frontend --> npm install react-bootstrap --> npm install axios </p>
+
+<p> If the backend doesn't work: </p>
+<p> cd ./backend --> pip install django --> pip install djangorestframework --> pip install django-cors-headers </p>
+<p> if again doesn't work :</p>
+<p> check  ./backend/settings.py</p>
