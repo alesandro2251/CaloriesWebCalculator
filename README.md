@@ -5,6 +5,12 @@
   <p> 2) To check how much calories are in the foods that you like </p>
   <p> 3) If the food isn't in the list to add it and check the calories </p>
   
-  <h3>Technologies used :</h3>
-  <p>JavaScript</p>
-  <p>Python</p>
+  <h2>Technologies used :</h2>
+  <h4>For Frontend :</h4>
+  <p>React.js</p>
+  <p>React-Bootstrap</p>
+  <p>Axios (for reading data from the backend)</p>
+  <h4>For Backend :</h4>
+  <p>Django</p>
+  <p>Django-REST</p>
+ 
