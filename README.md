@@ -19,7 +19,7 @@
 <h2>How to launch the project :</h2>
 <p>  1) enter the terminal</p>
 <p>  2) to accses the frontend type :</p>
-<p>  cd ./frontend/ -----> npm start</p>
+<p>  cd ./frontend/ -----> npm install react-scripts -----> npm start</p>
 
 <p>  3) to accses the backend type :</p>
 <p>  cd ./backend/ -----> python ./manage.py runserver </p>
