@@ -7,7 +7,7 @@ function ListOfFoods() {
   const [searchField, setSearchField] = useState("");
   const [data, setData] = useState([]);
   const [dataToSend, setDataToSend] = useState([]);
-  const [state, setState] = useState({ value: 10 });
+  const [rerender, setRerender] = useState(false);
 
   useEffect(() => {
     axios
@@ -20,52 +20,49 @@ function ListOfFoods() {
       });
   }, []);
 
-  const OnSearchChange = (event) => {
+  const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
 
-  const filteredFoods = data.filter((data) => {
-    return data["name"].toLocaleLowerCase().includes(searchField);
+  const filteredFoods = data.filter((food) => {
+    return food.name.toLocaleLowerCase().includes(searchField);
   });
 
-  function clickedData(event) {
-    let name = event.target.value;
-    for (let i = 0; i < data.length; i++) {
-      if (
-        name !== undefined &&
-        name === data[i]["name"] &&
-        !dataToSend.some((item) => item.name === name)
-      ) {
-        dataToSend.push({
-          name: data[i]["name"],
-          protein: data[i]["protein"],
-          carbs: data[i]["carbs"],
-          fats: data[i]["fats"],
+  const addToDataToSend = (name) => {
+    const foodToAdd = data.find((food) => food.name === name);
+
+    if (
+      name !== undefined &&
+      foodToAdd &&
+      !dataToSend.some((item) => item.name === name)
+    ) {
+      setDataToSend((prevData) => [
+        ...prevData,
+        {
+          name: foodToAdd.name,
+          protein: foodToAdd.protein,
+          carbs: foodToAdd.carbs,
+          fats: foodToAdd.fats,
           quantity: 1,
-        });
-        alert("Item added !");
-        console.log(dataToSend);
-      }
+        },
+      ]);
     }
-  }
+  };
 
   const onChangeQuantity = (event, index) => {
     const quantity = event.target.value;
     if (quantity > 0) {
-      const DataToSend = [...dataToSend];
-      DataToSend[index] = { ...DataToSend[index], quantity: quantity };
-      setDataToSend(DataToSend);
+      setDataToSend((prevData) =>
+        prevData.map((item, i) =>
+          i === index ? { ...item, quantity: quantity } : item
+        )
+      );
     }
   };
-  function forceUpdate() {
-    setState((prev) => {
-      return { ...prev };
-    });
-  }
 
-  const removeFromList = (x) => {
-    delete dataToSend[x];
+  const removeFromList = (index) => {
+    setDataToSend((prevData) => prevData.filter((_, i) => i !== index));
   };
 
   return (
@@ -74,7 +71,7 @@ function ListOfFoods() {
         className="search"
         type="search"
         placeholder="Search"
-        onChange={OnSearchChange}
+        onChange={onSearchChange}
       />
       <p>(All calories are per 100 grams)</p>
       <Container className="foods-container g-0">
@@ -85,7 +82,7 @@ function ListOfFoods() {
                 className="food-item-container"
                 variant="light"
                 value={data.name}
-                onClick={clickedData}
+                onClick={(e) => addToDataToSend(e.target.value)}
               >
                 <div className="food-name">{data.name}</div>
                 <div className="food-nutrients">
@@ -100,20 +97,19 @@ function ListOfFoods() {
         </ListGroup>
       </Container>
       <Container className="daily-calories-container g-0" fluid="md">
-        {dataToSend.map((index, i) => {
+        {dataToSend.map((item, i) => {
           return (
-            <ListGroup.Item key={index.id} className="item">
+            <ListGroup.Item key={`${item.name}_${i}`} className="item">
               <Row>
                 <Col sm={8}>
-                  {" "}
-                  <h5>{index.name}</h5>
+                  <h5>{item.name}</h5>
                 </Col>
-                <Col sm={4} >
+                <Col sm={4}>
                   <div className="d-flex justify-content-end g-0">
                     <div className="input-number">
                       <input
                         type="number"
-                        value={index.quantity}
+                        value={item.quantity}
                         onChange={(event) => onChangeQuantity(event, i)}
                       />
                     </div>
@@ -121,17 +117,15 @@ function ListOfFoods() {
                       <p>
                         Calories{" "}
                         {(
-                          (index.protein * 4 +
-                            index.carbs * 4 +
-                            index.fats * 8) *
-                          index.quantity
+                          (item.protein * 4 + item.carbs * 4 + item.fats * 8) *
+                          item.quantity
                         ).toFixed(1)}{" "}
                       </p>
                     </div>
                     <div>
-                      <Button className="item-button"
-                        value={i}
-                        onClick={(event) => removeFromList(event.target.value)}
+                      <Button
+                        className="item-button"
+                        onClick={() => removeFromList(i)}
                       >
                         <i>x</i>
                       </Button>
@@ -143,13 +137,9 @@ function ListOfFoods() {
           );
         })}
       </Container>
-      <div className="d-grid">
-        <Button size="sm" onClick={forceUpdate}>
-          Update
-        </Button>
-      </div>
     </Container>
   );
 }
 
 export default ListOfFoods;
+
