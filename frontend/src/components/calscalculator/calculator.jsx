@@ -59,6 +59,12 @@ function CalsCalculator() {
     );
   }
 
+  function waterPerDay(weight){
+    let result = weight * 0.03;
+
+    return <span>{result.toFixed(2)} liters water per day</span>
+  }
+
   return (
     <Container
       fluid="md"
@@ -151,6 +157,7 @@ function CalsCalculator() {
             {gender === "Male"
               ? macrosPerDay(maleCalories(weight, height, age, steps))
               : macrosPerDay(femaleCalories(weight, height, age, steps))}
+             {"\n"}{waterPerDay(weight)}
           </h6>
         </Row>
       </Form>
